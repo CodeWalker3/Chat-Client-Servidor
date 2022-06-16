@@ -11,7 +11,7 @@ def handle_messages(connection: socket.socket):
                 break
 
         except Exception as e:
-            print(f'Error handling message from server: {e}')
+            print(f'Erro ao cuidar da mensagem do servidor: {e}')
             connection.close()
             break
 
@@ -25,7 +25,7 @@ def client() -> None:
         socket_instance.connect((SERVER_ADDRESS, SERVER_PORT))
         threading.Thread(target=handle_messages, args=[socket_instance]).start()
 
-        print('Connected to chat!')
+        print('Conectado ao chat')
         while True:
             msg = input()
 
@@ -37,7 +37,7 @@ def client() -> None:
         socket_instance.close()
 
     except Exception as e:
-        print(f'Error connecting to server socket {e}')
+        print(f'Erro ao conectar no socket do servidor {e}')
         socket_instance.close()
 
 
