@@ -18,7 +18,7 @@ def handle_user_connection(connection: socket.socket, address: str) -> None:
                 break
 
         except Exception as e:
-            print(f'Erro na manutencao da conexao do usuario: {e}')
+            print(f'Erro na manutencao da conexao do client: {e}')
             remove_connection(connection)
             break
 
@@ -62,7 +62,7 @@ def server() -> None:
             threading.Thread(target=handle_user_connection, args=[socket_connection, address]).start()
 
     except Exception as e:
-        print(f'Um erro ocorreu na instancia do socket {e}')
+        print(f'Um erro ocorreu na instancia do socket: {e}')
     finally:
         if len(connections) > 0:
             for conn in connections:
