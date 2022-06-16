@@ -18,7 +18,7 @@ def handle_user_connection(connection: socket.socket, address: str) -> None:
                 break
 
         except Exception as e:
-            print(f'Error to handle user connection: {e}')
+            print(f'Erro na manutencao da conexao do usuario: {e}')
             remove_connection(connection)
             break
 
@@ -32,7 +32,7 @@ def broadcast(message: str, connection: socket.socket) -> None:
             try:
                 client_conn.send(message.encode())
             except Exception as e:
-                print('Error broadcasting message: {e}')
+                print('erro na transmissao da mensagem: {e}')
                 remove_connection(client_conn)
 
 
@@ -53,7 +53,7 @@ def server() -> None:
         socket_instance.bind(('', LISTENING_PORT))
         socket_instance.listen(4)
 
-        print('Server running!')
+        print('Servidor rodando!')
         
         while True:
 
@@ -62,7 +62,7 @@ def server() -> None:
             threading.Thread(target=handle_user_connection, args=[socket_connection, address]).start()
 
     except Exception as e:
-        print(f'An error has occurred when instancing socket: {e}')
+        print(f'Um erro ocorreu na instancia do socket {e}')
     finally:
         if len(connections) > 0:
             for conn in connections:
