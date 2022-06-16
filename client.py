@@ -37,7 +37,7 @@ def client() -> None:
         socket_instance.close()
 
     except Exception as e:
-        print(f'Erro ao conectar no socket do servidor {e}')
+        print(f'Erro ao conectar no socket do servidor: {e}')
         socket_instance.close()
 
 
